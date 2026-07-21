@@ -43,20 +43,24 @@ export default function ResetPasswordPage() {
     }
 
     setLoading(true);
-    const supabase = createClient();
-    const { error } = await supabase.auth.updateUser({ password });
-    setLoading(false);
+    try {
+      const supabase = createClient();
+      const { error } = await supabase.auth.updateUser({ password });
+      if (error) {
+        setError("Não foi possível atualizar a senha. Peça um novo link de recuperação.");
+        return;
+      }
 
-    if (error) {
-      setError("Não foi possível atualizar a senha. Peça um novo link de recuperação.");
-      return;
+      setDone(true);
+      setTimeout(() => {
+        router.push("/admin");
+        router.refresh();
+      }, 1500);
+    } catch {
+      setError("Não foi possível conectar agora. Verifique sua internet e tente novamente.");
+    } finally {
+      setLoading(false);
     }
-
-    setDone(true);
-    setTimeout(() => {
-      router.push("/admin");
-      router.refresh();
-    }, 1500);
   }
 
   return (

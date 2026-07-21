@@ -18,15 +18,20 @@ export default function LoginPage() {
     e.preventDefault();
     setLoading(true);
     setError("");
-    const supabase = createClient();
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    setLoading(false);
-    if (error) {
-      setError("E-mail ou senha inválidos.");
-      return;
+    try {
+      const supabase = createClient();
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) {
+        setError("E-mail ou senha inválidos.");
+        return;
+      }
+      router.push("/admin");
+      router.refresh();
+    } catch {
+      setError("Não foi possível conectar agora. Verifique sua internet e tente novamente.");
+    } finally {
+      setLoading(false);
     }
-    router.push("/admin");
-    router.refresh();
   }
 
   async function handleRecover(e: React.FormEvent) {
@@ -34,16 +39,21 @@ export default function LoginPage() {
     setLoading(true);
     setError("");
     setNotice("");
-    const supabase = createClient();
-    const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/admin/reset-password`,
-    });
-    setLoading(false);
-    if (error) {
-      setError("Não foi possível enviar o link. Confira o e-mail e tente novamente.");
-      return;
+    try {
+      const supabase = createClient();
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/admin/reset-password`,
+      });
+      if (error) {
+        setError("Não foi possível enviar o link. Confira o e-mail e tente novamente.");
+        return;
+      }
+      setNotice("Enviamos um link de recuperação para o seu e-mail.");
+    } catch {
+      setError("Não foi possível conectar agora. Verifique sua internet e tente novamente.");
+    } finally {
+      setLoading(false);
     }
-    setNotice("Enviamos um link de recuperação para o seu e-mail.");
   }
 
   return (
