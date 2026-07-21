@@ -481,6 +481,22 @@ img { max-width: 100%; display: block; }
   .admin-stats { grid-template-columns: 1fr; }
 }
 
+.admin-tabs { display: flex; gap: 8px; margin-bottom: 20px; border-bottom: 1px solid #e4e2dc; }
+.admin-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 12px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #5a6376;
+  cursor: pointer;
+  margin-bottom: -1px;
+}
+.admin-tab:hover { color: var(--navy); }
+.admin-tab-active { color: var(--navy); border-bottom-color: var(--gold); }
+
 .admin-table { width: 100%; border-collapse: collapse; background: var(--white); border: 1px solid #e4e2dc; }
 .admin-table th, .admin-table td { text-align: left; padding: 14px 18px; border-bottom: 1px solid #e4e2dc; font-size: 14px; }
 .admin-table th { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); background: var(--off-white); }
