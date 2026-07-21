@@ -195,10 +195,18 @@ export default function Home() {
             </div>
 
             <div className="socials">
-              <a href="#" target="_blank" rel="noopener">
+              <a
+                href="https://www.linkedin.com/company/tsp-sociedade-de-advogados/"
+                target="_blank"
+                rel="noopener"
+              >
                 LinkedIn
               </a>
-              <a href="#" target="_blank" rel="noopener">
+              <a
+                href="https://www.instagram.com/tsp.advogados/"
+                target="_blank"
+                rel="noopener"
+              >
                 Instagram
               </a>
             </div>
