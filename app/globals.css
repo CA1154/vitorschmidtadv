@@ -143,7 +143,7 @@ img { max-width: 100%; display: block; }
   z-index: 1;
   background: radial-gradient(circle, rgba(201,162,74,0.10) 0%, rgba(201,162,74,0) 65%);
 }
-.hero-content { position: relative; z-index: 2; padding: 140px 0 80px; }
+.hero-content { position: relative; z-index: 2; padding-top: 140px; padding-bottom: 80px; }
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 380px;
@@ -606,4 +606,11 @@ img { max-width: 100%; display: block; }
   .cta-strip-inner { flex-direction: column; text-align: center; }
   .admin-content { padding: 32px 16px; }
   .admin-form { padding: 24px; }
+  .logo-img { height: 40px; }
+  .header-inner { padding: 10px 16px; gap: 12px; }
+  .header-inner .btn-small { padding: 9px 14px; font-size: 10.5px; letter-spacing: 1px; }
+  .whatsapp-float { bottom: 16px; right: 16px; width: 50px; height: 50px; }
+  .whatsapp-float svg { width: 24px; height: 24px; }
+  .hero-content { padding-top: 100px; padding-bottom: 80px; }
+  .hero-actions { padding-right: 74px; }
 }
