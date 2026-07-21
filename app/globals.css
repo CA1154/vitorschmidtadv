@@ -106,8 +106,9 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   white-space: nowrap;
+  flex-shrink: 0;
 }
-.logo-img { height: 58px; width: auto; }
+.logo-img { height: 58px; width: auto; flex-shrink: 0; }
 .nav {
   display: flex;
   gap: 36px;
@@ -387,9 +388,13 @@ img { max-width: 100%; display: block; }
   justify-content: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   z-index: 90;
-  transition: transform 0.2s;
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+  transition: transform 0.2s, opacity 0.25s ease;
 }
-.whatsapp-float:hover { transform: scale(1.08); }
+.whatsapp-float-visible { opacity: 1; transform: scale(1); pointer-events: auto; }
+.whatsapp-float-visible:hover { transform: scale(1.08); }
 
 /* Artigos */
 .artigos-grid {
@@ -612,5 +617,4 @@ img { max-width: 100%; display: block; }
   .whatsapp-float { bottom: 16px; right: 16px; width: 50px; height: 50px; }
   .whatsapp-float svg { width: 24px; height: 24px; }
   .hero-content { padding-top: 100px; padding-bottom: 80px; }
-  .hero-actions { padding-right: 74px; }
 }

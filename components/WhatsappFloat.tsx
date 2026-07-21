@@ -1,8 +1,21 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 export default function WhatsappFloat({ whatsappLink }: { whatsappLink: string }) {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 300);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <a
       href={whatsappLink}
-      className="whatsapp-float"
+      className={`whatsapp-float ${visible ? "whatsapp-float-visible" : ""}`}
       target="_blank"
       rel="noopener"
       aria-label="Falar no WhatsApp"
