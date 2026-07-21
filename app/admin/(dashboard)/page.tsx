@@ -18,6 +18,9 @@ export default async function AdminDashboard() {
     .order("created_at", { ascending: false });
 
   const articles = (data ?? []) as Article[];
+  const publishedCount = articles.filter((a) => a.published).length;
+  const draftCount = articles.length - publishedCount;
+  const totalViews = articles.reduce((sum, a) => sum + (a.views ?? 0), 0);
 
   return (
     <div className="admin-content">
@@ -28,6 +31,21 @@ export default async function AdminDashboard() {
         </Link>
       </div>
 
+      <div className="admin-stats">
+        <div className="admin-stat-card">
+          <span className="admin-stat-value">{publishedCount}</span>
+          <span className="admin-stat-label">Publicados</span>
+        </div>
+        <div className="admin-stat-card">
+          <span className="admin-stat-value">{draftCount}</span>
+          <span className="admin-stat-label">Rascunhos</span>
+        </div>
+        <div className="admin-stat-card">
+          <span className="admin-stat-value">{totalViews}</span>
+          <span className="admin-stat-label">Visualizações no total</span>
+        </div>
+      </div>
+
       {articles.length === 0 ? (
         <div className="admin-empty">Você ainda não escreveu nenhum artigo.</div>
       ) : (
@@ -36,6 +54,7 @@ export default async function AdminDashboard() {
             <tr>
               <th>Título</th>
               <th>Status</th>
+              <th>Visualizações</th>
               <th>Criado em</th>
               <th></th>
             </tr>
@@ -49,6 +68,7 @@ export default async function AdminDashboard() {
                     {article.published ? "Publicado" : "Rascunho"}
                   </span>
                 </td>
+                <td>{article.views ?? 0}</td>
                 <td>{formatDate(article.created_at)}</td>
                 <td>
                   <div className="row-actions">

@@ -56,6 +56,9 @@ export default async function ArticlePage({
   const article = await getArticle(slug);
   if (!article) notFound();
 
+  const supabase = await createClient();
+  supabase.rpc("increment_article_views", { article_slug: slug }).then(() => {});
+
   const cleanContent = DOMPurify.sanitize(article.content);
 
   return (

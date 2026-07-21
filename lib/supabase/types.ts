@@ -6,6 +6,7 @@ export type Article = {
   content: string;
   cover_image_url: string | null;
   published: boolean;
+  views: number;
   created_at: string;
   updated_at: string;
 };
