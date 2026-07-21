@@ -323,7 +323,7 @@ img { max-width: 100%; display: block; }
 }
 
 /* CTA strip */
-.cta-strip { background: var(--gold); padding: 56px 0; }
+.cta-strip { background: #e4e2dc; padding: 56px 0; }
 .cta-strip-inner {
   display: flex;
   align-items: center;
@@ -337,8 +337,8 @@ img { max-width: 100%; display: block; }
   font-size: clamp(22px, 3vw, 28px);
   max-width: 560px;
 }
-.cta-strip .btn-gold { background: var(--navy); color: var(--white); border-color: var(--navy); }
-.cta-strip .btn-gold:hover { background: var(--navy-3); border-color: var(--navy-3); }
+.cta-strip .btn-gold { background: #c7c3ba; color: var(--navy); border-color: #c7c3ba; }
+.cta-strip .btn-gold:hover { background: #b8b3a8; border-color: #b8b3a8; }
 
 /* Contato */
 .contato { padding: 100px 0; background: var(--navy); }

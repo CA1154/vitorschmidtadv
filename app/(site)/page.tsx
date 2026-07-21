@@ -79,18 +79,21 @@ export default function Home() {
                   +55 19 99862-4510
                 </a>
               </p>
-              <p className="hero-bio">
-                Bacharel em Direito pela PUC Campinas, com especialização em Direito
-                Processual Civil e membro da Comissão de Processo Civil da OAB-Campinas.
-              </p>
               <p className="role">Advogado Cível e Empresarial.</p>
               <p className="hero-bio">
-                Atuação ao lado de empresários, sócios e famílias que buscam{" "}
-                <em className="hero-highlight">
-                  segurança jurídica para o seu negócio e o seu patrimônio
-                </em>
-                .
+                Sócio do escritório especializado na área empresarial, contencioso cível,
+                trabalhista e de recuperação estratégica de crédito, com forte atuação
+                junto aos Tribunais Estaduais e Superiores.
               </p>
+              <p className="hero-bio">
+                Graduado em Direito pela Pontifícia Universidade Católica de Campinas
+                (PUC – Campinas).
+              </p>
+              <p className="hero-bio">
+                Especialização em Direito Processual Civil pela Pontifícia Universidade
+                Católica de Campinas (PUC – Campinas).
+              </p>
+              <p className="hero-bio">Membro da Comissão de Processo Civil da OAB-Campinas.</p>
               <div className="hero-actions">
                 <a href="#contato" className="btn btn-gold">
                   ENTRE EM CONTATO
