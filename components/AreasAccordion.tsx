@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 export type Area = {
+  slug: string;
   title: string;
   text: string;
   details: string;
@@ -46,7 +48,7 @@ export default function AreasAccordion({ areas }: { areas: Area[] }) {
         const isOpen = openIndex === index;
         return (
           <div
-            key={area.title}
+            key={area.slug}
             ref={(el) => {
               cardRefs.current[index] = el;
             }}
@@ -69,7 +71,18 @@ export default function AreasAccordion({ areas }: { areas: Area[] }) {
               </span>
             </div>
             <p>{area.text}</p>
-            {isOpen && <p className="area-card-details">{area.details}</p>}
+            {isOpen && (
+              <>
+                <p className="area-card-details">{area.details}</p>
+                <Link
+                  href={`/areas/${area.slug}`}
+                  className="area-card-link"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Ver página completa →
+                </Link>
+              </>
+            )}
           </div>
         );
       })}

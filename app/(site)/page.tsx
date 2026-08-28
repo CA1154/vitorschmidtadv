@@ -1,66 +1,10 @@
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
-import AreasAccordion, { type Area } from "@/components/AreasAccordion";
+import AreasAccordion from "@/components/AreasAccordion";
+import { AREAS } from "@/lib/areas";
 
 const WHATSAPP_LINK =
   "https://wa.me/5519998624510?text=Ol%C3%A1%2C%20Vitor!%20Gostaria%20de%20agendar%20uma%20conversa%20sobre%20uma%20quest%C3%A3o%20jur%C3%ADdica.";
-
-const AREAS: Area[] = [
-  {
-    title: "Direito Empresarial",
-    text: "Assessoria jurídica na estruturação, proteção e desenvolvimento de empresas. Contratos societários, reorganizações, holdings, governança corporativa e resolução de conflitos entre sócios.",
-    details:
-      "Atuação consultiva e contenciosa para empresas de todos os portes, com foco em prevenir litígios por meio de contratos e estruturas bem desenhadas. Inclui due diligence societária, reorganizações empresariais, governança corporativa, acordos de acionistas/quotistas e mediação de conflitos entre sócios antes que se tornem processos judiciais.",
-  },
-  {
-    title: "Contratos",
-    text: "Elaboração, revisão e gestão de contratos empresariais e civis. NDAs, instrumentos comerciais, imobiliários e parcerias complexas.",
-    details:
-      "Redação e revisão de contratos sob medida — comerciais, de prestação de serviços, parcerias, locação, compra e venda e NDAs — com atenção a cláusulas de risco, multas, garantias e foro. O objetivo é reduzir ambiguidades que geram disputas futuras e garantir que o contrato reflita exatamente o que foi negociado.",
-  },
-  {
-    title: "Societário",
-    text: "Assessoria completa nas relações societárias: constituição e dissolução de sociedades, alterações contratuais, acordo de sócios, conflitos societários e reestruturações empresariais.",
-    details:
-      "Da constituição à dissolução: elaboração e alteração de contratos sociais, acordos de sócios com regras claras de entrada e saída, resolução de impasses societários (inclusive dissoluções parciais) e reestruturações societárias para adequar a empresa a um novo momento — crescimento, sucessão ou reorganização de sócios.",
-  },
-  {
-    title: "Planejamento Sucessório",
-    text: "Estruturação jurídica da transmissão de patrimônio e negócios familiares, com foco na proteção de ativos, redução de conflitos e eficiência tributária. Holdings familiares, doações e testamentos.",
-    details:
-      "Planejamento antecipado de como o patrimônio e a empresa da família serão transmitidos, evitando disputas entre herdeiros e reduzindo a carga tributária da sucessão. Envolve a análise de holdings familiares, doações com reserva de usufruto, testamentos e outras estruturas adequadas à realidade de cada família.",
-  },
-  {
-    title: "Direito Civil",
-    text: "Demandas cíveis estratégicas envolvendo responsabilidade civil, obrigações, conflitos imobiliários, execuções e litígios empresariais.",
-    details:
-      "Atuação em disputas cíveis complexas — responsabilidade civil, cobrança de dívidas, conflitos imobiliários e execuções — sempre com uma leitura estratégica do caso: quando vale a pena negociar e quando é preciso litigar até o fim.",
-  },
-  {
-    title: "Direito do Agronegócio",
-    text: "Atuação especializada no setor agropecuário: crédito rural, renegociação de dívidas, contratos agrícolas, CPR, garantias reais e regularização fundiária.",
-    details:
-      "Suporte jurídico a produtores e empresas rurais em operações de crédito rural, emissão e execução de CPR, contratos de parceria e arrendamento rural, renegociação de dívidas agrícolas e regularização fundiária — áreas com particularidades próprias que exigem conhecimento específico do setor.",
-  },
-  {
-    title: "Direito Tributário",
-    text: "Consultoria e contencioso tributário para pessoas físicas e jurídicas. Planejamento fiscal, defesa em autuações administrativas e judiciais, recuperação de créditos.",
-    details:
-      "Planejamento tributário preventivo para reduzir a carga fiscal dentro da legalidade, defesa em autuações e execuções fiscais nas esferas administrativa e judicial, e identificação de créditos tributários recuperáveis — sempre alinhado à realidade operacional do negócio.",
-  },
-  {
-    title: "Trabalhista para Empresa",
-    text: "Assessoria preventiva e contenciosa em relações trabalhistas empresariais. Gestão de passivo trabalhista, defesa em reclamações, contratos e compliance trabalhista.",
-    details:
-      "Atuação do lado da empresa: elaboração de contratos e políticas internas que reduzem o risco de passivo trabalhista, defesa em reclamações trabalhistas e orientação de compliance para manter a operação alinhada à legislação e evitar contingências futuras.",
-  },
-  {
-    title: "Privacidade de Dados e Direito Digital",
-    text: "Adequação à LGPD, governança de dados e assessoria jurídica em contratos e disputas envolvendo tecnologia, internet e ambientes digitais.",
-    details:
-      "Estruturação de programas de adequação à LGPD (mapeamento de dados, políticas de privacidade, bases legais de tratamento), assessoria em incidentes de segurança da informação, contratos de tecnologia e SaaS, e atuação em disputas envolvendo comércio eletrônico, marketplaces e responsabilidade civil no ambiente digital.",
-  },
-];
 
 export default function Home() {
   return (
@@ -166,8 +110,7 @@ export default function Home() {
             <p className="eyebrow">CONTATO</p>
             <h2>Entre em Contato</h2>
             <p className="contato-lead">
-              Envie sua mensagem ou fale diretamente pelo WhatsApp. O atendimento é feito
-              pelo próprio Vitor Santos Schmidt.
+              Envie sua mensagem ou fale diretamente pelo WhatsApp.
             </p>
 
             <div className="info-block">
