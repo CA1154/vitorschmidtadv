@@ -3,7 +3,6 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import DOMPurify from "isomorphic-dompurify";
 
 const DIACRITICS_RE = new RegExp("[\\u0300-\\u036f]", "g");
 
@@ -34,6 +33,7 @@ async function ensureUniqueSlug(baseSlug: string, excludeId?: string) {
 }
 
 export async function createArticle(formData: FormData) {
+  const DOMPurify = (await import("isomorphic-dompurify")).default;
   const supabase = await createClient();
   const title = String(formData.get("title") ?? "").trim();
   const excerpt = String(formData.get("excerpt") ?? "").trim();
@@ -67,6 +67,7 @@ export async function createArticle(formData: FormData) {
 }
 
 export async function updateArticle(formData: FormData) {
+  const DOMPurify = (await import("isomorphic-dompurify")).default;
   const supabase = await createClient();
   const id = String(formData.get("id") ?? "");
   const title = String(formData.get("title") ?? "").trim();
