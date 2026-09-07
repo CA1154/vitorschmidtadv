@@ -576,6 +576,14 @@ p { text-align: justify; }
 .admin-table th { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); background: var(--off-white); }
 .admin-table tr:last-child td { border-bottom: none; }
 .admin-empty { padding: 48px; text-align: center; color: #5a6376; background: var(--white); border: 1px solid #e4e2dc; }
+.admin-error-boundary {
+  padding: 48px;
+  text-align: center;
+  background: var(--white);
+  border: 1px solid #e4e2dc;
+}
+.admin-error-boundary h1 { font-size: 22px; color: var(--navy); margin-bottom: 12px; }
+.admin-error-boundary p { color: #5a6376; margin-bottom: 24px; max-width: 480px; margin-left: auto; margin-right: auto; }
 
 .badge { display: inline-block; padding: 4px 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
 .badge-published { background: #dcf5e3; color: #1a7a3c; }
