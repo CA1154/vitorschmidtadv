@@ -33,9 +33,13 @@ export async function proxy(request: NextRequest) {
       }
     );
 
+    const timeout = new Promise<never>((_, reject) =>
+      setTimeout(() => reject(new Error("auth check timed out")), 5000)
+    );
+
     const {
       data: { user },
-    } = await supabase.auth.getUser();
+    } = await Promise.race([supabase.auth.getUser(), timeout]);
 
     if (needsAuth && !user) {
       const url = request.nextUrl.clone();
